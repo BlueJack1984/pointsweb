@@ -54,7 +54,7 @@ export class UserRepassComponent implements OnInit {
     const data = {
       'oldPassword': oldPassword,
       'newPassword': newpassword,
-      'sureNewPassWord': sureNewPassWord
+      'sureNewPassword': sureNewPassWord
     };
     // 访问userRepassService请求方法
     this.userCommon.userRepassService(data)

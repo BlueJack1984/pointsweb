@@ -57,6 +57,7 @@ export class HttpService {
    */
   postData(url: string, data: any) {
     //headers请求参数头
+    console.log(data);
     return this.http.post(url, data, {headers: {
       'Content-Type': 'application/json','Authorization': this.getToken(), '_current_id': this.getId()}
     })
