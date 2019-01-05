@@ -1,0 +1,65 @@
+
+.menu-img-d1{
+  width: 224px;
+  padding-top: 155px;
+  padding-left: 21px;
+  background: url("../../../../../assets/images/left_top.jpg") no-repeat top;
+}
+.menu-div1{
+  width: 181px;
+  padding-left: 15px;
+  background: url("../../../../../assets/images/nav_a.jpg") no-repeat;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: bold;
+  line-height: 32px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  _margin-top: 8px;
+  float: left;
+}
+.menu-common{
+
+  float: left;
+}
+
+.lmdh_top{
+  width: 196px;
+  height: 15px;
+  _margin-top: 8px;
+  background: url("../../../../../assets/images/lmdh_top.jpg") no-repeat;
+  float: left;
+}
+.lmdh_middle{
+  width: 196px;
+  background: url("../../../../../assets/images/lmdh_middle.jpg") repeat-y;
+  float: left;
+}
+.lmdh_bottom{
+  width: 196px;
+  height: 2px;
+  padding-bottom: 8px;
+  background: url("../../../../../assets/images/lmdh_bottom.jpg") no-repeat top;
+  float: left;
+}
+.lmdh_middle div{
+  padding-left: 15px;
+  padding-bottom: 13px;
+}
+.lmdh_middle div a{
+  font-size: 14px;
+  text-decoration: none;
+  color: #bbbbbb;
+  padding-left: 14px;
+  background: url("../../../../../assets/images/lmdh_jt1.gif") no-repeat left 2px;
+}
+
+.menu-div1:hover {
+  color: #333333;
+  background: url("../../../../../assets/images/nav_hover.jpg");
+}
+.lmdh_middle div a:hover {
+  color: #FFFFFF;
+  font-weight: bold;
+  background: url("../../../../../assets/images/lmdh_jt2.gif") no-repeat left 2px;
+}

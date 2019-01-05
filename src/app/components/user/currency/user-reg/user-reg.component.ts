@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { UserCommonService } from '../user-common.service';
 import * as $ from "jquery";
 
+/**
+ * @desc 登陆用户居住权证
+ * @author lilong
+ * @date 2018-12-29
+ */
 @Component({
   selector: 'app-user-reg',
   templateUrl: './user-reg.component.html',
@@ -9,6 +14,11 @@ import * as $ from "jquery";
 })
 export class UserRegComponent implements OnInit {
 
+  /**
+   * 定义接收数据变量
+   */
+
+  // 各个省名
   provinces = ['请选择省份','北京市','上海市','天津市','重庆市','河北省','山西省',
     '内蒙古省','辽宁省','吉林省','黑龙江省','江苏省','浙江省','安徽省','福建省','江西省',
     '山东省','河南省','湖北省','湖南省','广东省','广西省','海南省','四川省','贵州省',
@@ -16,7 +26,7 @@ export class UserRegComponent implements OnInit {
 
 
   constructor(
-    private userCommon: UserCommonService
+    private userCommon: UserCommonService  // 引入UserCommonService服务
   ) { }
 
   ngOnInit() {
@@ -43,6 +53,7 @@ export class UserRegComponent implements OnInit {
     phone, province, city, address, certificationTime
   ) {
     console.log(rankId,gender);
+    // 赋值成json数据
     const data = {
       'account': account,
       'realName': realName,
@@ -57,14 +68,14 @@ export class UserRegComponent implements OnInit {
       'address': address,
       'certificationTime': certificationTime,
     };
-    console.log(data);
+    // 访问regAddService请求方法
     this.userCommon.regAddService(data)
       .subscribe((response: any) => {
-        if (response.code === 200 || response.ok) {
+        if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           alert('登记成功');
-        } else {
-          alert(response.message);
-          return false;
+        } else { // 没有正确取到值
+          alert(response.message);  // 从后台报错误信息
+          return false; // 不跳转页面
         }
       })
   }
@@ -73,7 +84,6 @@ export class UserRegComponent implements OnInit {
    * 重置事件
    */
   reset() {
-    //  密码
-    $('input[type="password"]').prop('value', '');
+    $('input[type="text"]').prop('value', '');
   }
 }

@@ -1,0 +1,89 @@
+<div class="menu-img-d1">
+  <div class="menu-div1" (click)="ShowHideButton(1)">
+    通用操作
+  </div>
+  <div class="menu-common" id="ML1" *ngIf="!showML1">
+    <div class="lmdh_top" ></div>
+    <div class="lmdh_middle">
+      <div>
+        <a routerLink="/admin/myinfo">个人档案</a>
+      </div>
+      <div>
+        <a routerLink="/admin/repass">修改密码</a>
+      </div>
+      <div>
+        <a routerLink="/admin/repass-spw">修改超级密码</a>
+      </div>
+      <div>
+        <a routerLink="/admin/tb-index">天宝指数</a>
+      </div>
+      <div>
+        <a routerLink="/admin/tb-index-kline">天宝K线图</a>
+      </div>
+    </div>
+    <div class="lmdh_bottom"></div>
+  </div>
+  <div class="menu-div1" (click)="ShowHideButton(2)">
+    财务管理
+  </div>
+  <div class="menu-common" id="ML2" *ngIf="!showML2">
+    <div class="lmdh_top"></div>
+    <div class="lmdh_middle">
+      <div>
+        <a routerLink="/admin/point">增值积分结算</a>
+      </div>
+      <div>
+        <a routerLink="/admin/pointlist">增值积分列表</a>
+      </div>
+    </div>
+    <div class="lmdh_bottom"></div>
+  </div>
+  <div class="menu-div1" (click)="ShowHideButton(3)">
+    客服中心
+  </div>
+  <div class="menu-common" id="ML3" *ngIf="!showML3">
+    <div class="lmdh_top"></div>
+    <div class="lmdh_middle" >
+      <div>
+        <a routerLink="/admin/message">会员留言</a>
+      </div>
+      <div>
+        <a routerLink="/admin/news">首页公共</a>
+      </div>
+    </div>
+    <div class="lmdh_bottom"></div>
+  </div>
+  <div class="menu-div1" (click)="ShowHideButton(4)">
+    系统管理
+  </div>
+  <div class="menu-common" id="ML4" *ngIf="!showML4">
+    <div class="lmdh_top"></div>
+    <div class="lmdh_middle">
+      <div>
+        <a routerLink="/admin/user">会员档案</a>
+      </div>
+      <div>
+        <a routerLink="/admin/level">会员级别</a>
+      </div>
+      <div>
+        <a routerLink="/admin/admingroup">管理角色</a>
+      </div>
+      <div>
+        <a routerLink="/admin/admin">管理用户</a>
+      </div>
+    </div>
+    <div class="lmdh_bottom"></div>
+  </div>
+  <div class="menu-div1" (click)="ShowHideButton(5)">
+    平台维护
+  </div>
+  <div class="menu-common" id="ML5" *ngIf="!showML5">
+    <div class="lmdh_top"></div>
+    <div class="lmdh_middle">
+      <div>
+        <a routerLink="/admin/deldata">清空数据</a>
+      </div>
+    </div>
+    <div class="lmdh_bottom"></div>
+  </div>
+</div>

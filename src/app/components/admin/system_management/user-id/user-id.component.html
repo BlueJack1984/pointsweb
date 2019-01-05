@@ -1,0 +1,103 @@
+<div class="background-img height-div">
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-system-management-menu></app-system-management-menu>
+  </div>
+  <div class="main-div">
+    <div>
+      <div class="main-Navigation">
+        会员档案
+        <img src="../../../../../assets/images/xtgl.jpg">
+        <div class="search-div">
+          <div class="select-div">
+            <select #type>
+              <option value="0" selected="selected">按会员编号查询</option>
+              <option value="1">按联系方式查询</option>
+              <option value="2">按真实姓名查询</option>
+            </select>
+          </div>
+          <input type="text" class="search-input" value="" #keyword>
+          <input type="button" class="search-button" (click)="condition(type.value, keyword.value)">
+        </div>
+      </div>
+    </div>
+    <div class="myinfo-div">
+      <div class="myinfo-div-d1">
+        <div class="myinfo-div-table">
+          <div class="admin-div">
+            <div class="div-header Settlement-date user-checkbox" >
+              <input type="checkbox"  id="allCheck"  (click)="checkAll()">
+            </div>
+            <div class="div-header user-number">
+              编号
+            </div>
+            <div class="div-header user-level">
+              会员级别
+            </div>
+            <div class="div-header user-name">
+              真实姓名
+            </div>
+            <div class="div-header user-information">
+              联系方式
+            </div>
+            <div class="div-header user-registration-date">
+              注册日期
+            </div>
+            <div class="div-header user-udit-status">
+              审核状态
+            </div>
+            <div class="div-header user-operation">
+              操作
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="admin-div" *ngFor="let item of userdata.data;let i = index">
+            <div class="div-data Settlement-date user-checkbox">
+              <input type="checkbox">
+            </div>
+            <div class="div-data user-number div-color">
+              {{item.account}}
+              <input type="text" style="display:none" value="{{item.id}}" #userId>
+            </div>
+            <div class="div-data user-level div-color">
+              {{item.rank.alias}}
+            </div>
+            <div class="div-data user-name div-color">
+              {{item.account}}
+            </div>
+            <div class="div-data user-information div-color">
+              {{item.phone}}
+            </div>
+            <div class="div-data user-registration-date div-color">
+              {{item.createTime | amSubtract: 5 : 'years' | amDateFormat: 'YYYY-MM-DD HH:mm:ss'}}
+            </div>
+            <div class="div-data user-udit-status div-color">
+              {{item.status ? '未审核' : '已审核'}}
+            </div>
+            <div class="div-data user-operation">
+              <a routerLink="#" (click)="userIdInfo(userId.value)">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a routerLink="#"(click)="userIdUpdata(userId.value)">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a routerLink="#" (click)="userResetPassword(userId.value)">重置密码</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <div class="admin-div div-center-align">
+            <div class="news-div-input ">
+              <input type="button" (click)="customer.del_megs()" class="button-1 button-width message-float" value="屏蔽选定会员并禁止其登陆">
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-12 div-center padding-top-15px">
+                <pagination [boundaryLinks]="!showBoundaryLinks" [totalItems]="this.userTotal"
+                            [maxSize]="10" (pageChanged)="pageChanged($event)"
+                            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

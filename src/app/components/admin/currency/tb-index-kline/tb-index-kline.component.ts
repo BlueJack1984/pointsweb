@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from '../../services/currency.service';
-import {repeat} from "rxjs/operators";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-tb-index-kline',
   templateUrl: './tb-index-kline.component.html',
-  styleUrls: ['./tb-index-kline.component.css']
+  styleUrls: ['./tb-index-kline.component.css'],
+  providers: [DatePipe]
 })
 export class TbIndexKlineComponent implements OnInit {
 
@@ -27,7 +28,8 @@ export class TbIndexKlineComponent implements OnInit {
   tbExponent: any;
 
   constructor(
-    private currency: CurrencyService
+    private currency: CurrencyService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit() {
@@ -46,7 +48,7 @@ export class TbIndexKlineComponent implements OnInit {
           for (let i = 0; i < this.exponentData.length; i++) {
             this.shExponentData[i] = [];
             this.tbExponentData[i] = [];
-            this.exponentDate[i] = this.exponentData[i]['createTime'];
+            this.exponentDate[i] = this.datePipe.transform(this.exponentData[i].createTime, 'yyyy-MM-dd');
             this.shExponentData[i].push(this.shdata[0] = this.exponentData[i].shOpenExponent);
             this.shExponentData[i].push(this.shdata[1] = this.exponentData[i].shCloseExponent);
             this.shExponentData[i].push(this.shdata[2] = this.exponentData[i].shMinExponent);

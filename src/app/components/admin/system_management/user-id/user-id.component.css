@@ -1,0 +1,63 @@
+.user-checkbox{
+  width: 4%;
+}
+.user-number{
+  width: 10%;
+}
+.user-level{
+  width: 10%;
+}
+.user-name{
+  width: 10%;
+}
+.user-information{
+  width: 14%;
+}
+.user-registration-date{
+  width: 22%;
+}
+.user-udit-status{
+  width: 12%;
+}
+.user-operation{
+  width: 17%;
+}
+.user-button{
+  float: left;
+  width: 95%;
+}
+.search-input{
+  outline: none;
+  width: 194px;
+  height: 41px;
+  line-height: 41px;
+  font-size: 12px;
+  padding-left: 18px;
+  padding-right: 11px;
+  border: none;
+  color: #666666;
+  background: url("../../../../../assets/images/search_left.jpg") no-repeat;
+}
+.search-button{
+  outline: none;
+  width: 43px;
+  float: right;
+  height: 41px;
+  border: none;
+  background: url("../../../../../assets/images/search_right.jpg") no-repeat;
+  cursor: pointer;
+}
+.search-div{
+  float: right;
+}
+.select-div{
+  float: left;
+  padding: 7px 0;
+}
+.select-div>select{
+  height: 20px;
+  font-size: 16px;
+}
+.div-color{
+  color: #0084ff;
+}

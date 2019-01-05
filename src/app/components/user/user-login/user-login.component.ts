@@ -3,9 +3,12 @@ import { Router } from '@angular/router';
 import {UserCommonService} from "../currency/user-common.service";
 import * as $ from "jquery";
 import { HttpService } from "../../../common/service/http.service";
-import { UserHeaderComponent } from "../common/user-header/user-header.component";
-import {UserMainComponent} from "../currency/user-main/user-main.component";
 
+/**
+ * @desc 用户登陆界面
+ * @author lilong
+ * @date 2019-1-4
+ */
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
@@ -13,27 +16,33 @@ import {UserMainComponent} from "../currency/user-main/user-main.component";
 })
 export class UserLoginComponent implements OnInit {
 
-
-  code: any;
+  /**
+   * 定义接收数据变量
+   */
+  code: any;  // 验证码
 
   constructor(
-    private router: Router,
-    private userCommon: UserCommonService,
-    private http: HttpService,
+    private router: Router, // 引入Router路由组件
+    private userCommon: UserCommonService,  // 引入UserCommonService服务
+    private http: HttpService,  // 引入http组件
   ) { }
 
   ngOnInit() {
-    this.generateInfo();
+    this.generateInfo();  // 初始化验证码
   }
 
+  /**
+   * 显示验证码
+   */
   generateInfo() {
+    // 访问generateService请求方法
     this.userCommon.generateService()
       .subscribe((response: any) => {
-        if (response.code === 200 || response.ok) {
+        if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
           this.code = response;
-        } else {
-          alert(response.message);
-          return false;
+        } else { // 没有正确取到值
+          alert(response.message);  // 从后台报错误信息
+          return false; // 不跳转页面
         }
       })
   }
@@ -58,21 +67,22 @@ export class UserLoginComponent implements OnInit {
       alert('验证码不能为空');
       return false;
     }
-    // post方法
+    // 赋值成json数据
     const data = {
       "account": account,
       "password": password,
       "userCaptcha": userCaptcha
     };
+    // 访问loginService请求方法
     this.userCommon.loginService(data)
       .subscribe((response: any) => {
-        if (response.code === 200 || response.ok) {
-          this.http.setToken(response.data['token']);
-          this.http.setId(response.data['id']);
-          this.router.navigateByUrl('/main');
-        } else {
-          alert(response.message);
-          return false;
+        if (response.code === 200 || response.ok) {  // 判断是否正确取得数据
+          this.http.setToken(response.data['token']); // 获取的数据存入storage
+          this.http.setId(response.data['id']); // 获取的数据存入storage
+          this.router.navigateByUrl('/main'); // 跳转到用户首页界面
+        } else { // 没有正确取到值
+          alert(response.message);  // 从后台报错误信息
+          return false; // 不跳转页面
         }
       })
   }
