@@ -53,7 +53,7 @@ export class UserRepassComponent implements OnInit {
     // 赋值成json数据
     const data = {
       'oldPassword': oldPassword,
-      'newpassword': newpassword,
+      'newPassword': newpassword,
       'sureNewPassWord': sureNewPassWord
     };
     // 访问userRepassService请求方法
